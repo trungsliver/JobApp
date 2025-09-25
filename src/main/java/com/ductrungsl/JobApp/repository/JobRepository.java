@@ -9,4 +9,5 @@ import java.util.List;
 public interface JobRepository {
     List<Job> findAll();
     void addJob(Job job);
+    Job findById(Long id);
 }

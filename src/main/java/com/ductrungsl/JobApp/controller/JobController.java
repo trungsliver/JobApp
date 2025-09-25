@@ -20,6 +20,11 @@ public class JobController {
         return jobService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Job findById(@PathVariable Long id){
+        return jobService.findById(id);
+    }
+
     @PostMapping("/add")
     public String addJob(@RequestBody  Job job){
         jobService.addJob(job);

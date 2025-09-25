@@ -23,4 +23,11 @@ public class JobService implements JobRepository {
         job.setId(nextId++);
         jobs.add(job);
     }
+
+    @Override
+    public Job findById(Long id) {
+        return jobs.stream().filter(
+                job -> job.getId().equals(id)).findFirst()
+                .orElse(null);
+    }
 }
