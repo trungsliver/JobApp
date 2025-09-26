@@ -31,12 +31,14 @@ public class JobService implements JobRepository {
                 .orElse(null);
     }
 
-    public void deleteJobById(Long id) {
+    @Override
+    public boolean deleteJobById(Long id) {
         for (Job job : jobs) {
             if (job.getId().equals(id)) {
                 jobs.remove(job);
-                break;
+                return true;
             }
         }
+        return false;
     }
 }
