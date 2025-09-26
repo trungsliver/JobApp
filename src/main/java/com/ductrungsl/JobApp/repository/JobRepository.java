@@ -11,4 +11,5 @@ public interface JobRepository {
     void addJob(Job job);
     Job findById(Long id);
     boolean deleteJobById(Long id);
+    boolean updateJobById(Long id, Job job);
 }
