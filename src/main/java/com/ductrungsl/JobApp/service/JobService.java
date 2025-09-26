@@ -30,4 +30,13 @@ public class JobService implements JobRepository {
                 job -> job.getId().equals(id)).findFirst()
                 .orElse(null);
     }
+
+    public void deleteJobById(Long id) {
+        for (Job job : jobs) {
+            if (job.getId().equals(id)) {
+                jobs.remove(job);
+                break;
+            }
+        }
+    }
 }

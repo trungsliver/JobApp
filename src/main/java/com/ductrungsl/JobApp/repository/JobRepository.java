@@ -10,4 +10,5 @@ public interface JobRepository {
     List<Job> findAll();
     void addJob(Job job);
     Job findById(Long id);
+    void deleteJobById(Long id);
 }
