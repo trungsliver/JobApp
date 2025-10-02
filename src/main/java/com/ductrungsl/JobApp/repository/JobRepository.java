@@ -8,9 +8,4 @@ import java.util.List;
 
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
-//    List<Job> findAll();
-//    void addJob(Job job);
-//    Job findById(Long id);
-//    boolean deleteJobById(Long id);
-//    boolean updateJobById(Long id, Job job);
 }
