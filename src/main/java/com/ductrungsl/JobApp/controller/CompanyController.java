@@ -35,12 +35,12 @@ public class CompanyController {
     }
 
     @PutMapping("/update/{id}")
-    public  ResponseEntity<Company> updateCompany(@PathVariable Long id, @RequestBody Company company) {
+    public  ResponseEntity<String> updateCompany(@PathVariable Long id, @RequestBody Company company) {
         boolean updated = companyService.updateCompanyById(id, company);
         if (!updated) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Update fail. Company not found!", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(company, HttpStatus.OK);
+        return new ResponseEntity<>("Company updated successfully", HttpStatus.OK);
     }
 
 }
