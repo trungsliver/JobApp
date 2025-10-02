@@ -1,5 +1,6 @@
 package com.ductrungsl.JobApp.controller;
 
+import com.ductrungsl.JobApp.entity.Company;
 import com.ductrungsl.JobApp.entity.Job;
 import com.ductrungsl.JobApp.service.JobService;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +39,7 @@ public class JobController {
     @PostMapping("/add")
     public ResponseEntity<String> addJob(@RequestBody Job job){
         jobService.addJob(job);
+//        Company company = job.getCompany();
         return new ResponseEntity<>("Job added successfully", HttpStatus.CREATED);
     }
 
