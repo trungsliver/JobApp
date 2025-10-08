@@ -32,4 +32,13 @@ public class ReviewController {
         }
     }
 
+    @GetMapping("/{reviewId}")
+    public ResponseEntity<Review> getReviewById(@PathVariable Long companyId, @PathVariable Long reviewId) {
+        if (reviewService.findReviewById(companyId, reviewId) != null) {
+            return new ResponseEntity<>(reviewService.findReviewById(companyId, reviewId), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
