@@ -51,4 +51,13 @@ public class ReviewService {
         }
         return false;
     }
+
+    public  boolean deleteReviewById(Long companyId, Long reviewId) {
+        Review existingReview = findReviewById(companyId, reviewId);
+        if (existingReview != null) {
+            reviewRepository.delete(existingReview);
+            return true;
+        }
+        return false;
+    }
 }
