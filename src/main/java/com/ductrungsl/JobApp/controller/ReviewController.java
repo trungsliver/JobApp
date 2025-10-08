@@ -24,8 +24,12 @@ public class ReviewController {
 
     @PostMapping("/add")
     public ResponseEntity<String> addReview(@PathVariable Long companyId, @RequestBody Review review) {
-        reviewService.addReview(companyId, review);
-        return new ResponseEntity<>("Review added successfully", HttpStatus.CREATED);
+        boolean reviewSave =  reviewService.addReview(companyId, review);
+        if (reviewSave) {
+            return new ResponseEntity<>("Review added successfully", HttpStatus.CREATED);
+        } else  {
+            return new ResponseEntity<>("Review could not be added", HttpStatus.BAD_REQUEST);
+        }
     }
 
 }
