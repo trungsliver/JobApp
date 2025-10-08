@@ -39,4 +39,16 @@ public class ReviewService {
                 .findFirst()
                 .orElse(null);
     }
+
+    public boolean updateReviewById(Long companyId, Long reviewId, Review review) {
+        Review existingReview = findReviewById(companyId, reviewId);
+        if (existingReview != null) {
+            existingReview.setTitle(review.getTitle());
+            existingReview.setDescription(review.getDescription());
+            existingReview.setRating(review.getRating());
+            reviewRepository.save(existingReview);
+            return true;
+        }
+        return false;
+    }
 }
